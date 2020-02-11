@@ -58,6 +58,6 @@ public class MemberController {
 
     @GetMapping("/admin")
     public String dispAdmin() {
-        return "/admin";
+        return "/book/list";
     }
 }

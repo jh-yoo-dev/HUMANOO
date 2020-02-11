@@ -1,4 +1,6 @@
-package com.example.bookstore.model;
+package com.example.bookstore.model.entitiy;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -20,7 +20,7 @@ import lombok.ToString;
 @Table
 @ToString
 @Builder
-public class Book{
+public class Book extends TimeEntity{
 
     @Id
     @Column
@@ -28,17 +28,18 @@ public class Book{
     public Long idx;
 
     @Column
-    private String Id;
+    private String id;
 
     @Column
     private String ISBN;
 
     @Column
-    private String Name;
+    private String title;
 
     @Column
-    private String Author;
+    private String author;
 
     @Column
-    private String Categories;
+    private String categories;
+
 }

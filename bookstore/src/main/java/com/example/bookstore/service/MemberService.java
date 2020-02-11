@@ -8,10 +8,12 @@ import javax.transaction.Transactional;
 
 import com.example.bookstore.dao.MemberRepository;
 import com.example.bookstore.dto.MemberDto;
-import com.example.bookstore.model.Member;
+import com.example.bookstore.model.entitiy.Member;
+import com.example.bookstore.model.Role;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -37,7 +39,7 @@ public class MemberService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
         Optional<Member> userEntityWrapper = memberRepository.findByEmail(userEmail);
-        Member user= userEntityWrapper.get();
+        Member member = userEntityWrapper.get();
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 
@@ -47,7 +49,7 @@ public class MemberService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
 
-        return new User(userEntity.getEmail(), userEntity.getPassword(), authorities);
+        return new User(member.getEmail(), member.getPassword(), authorities);
     }
 
 }

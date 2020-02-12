@@ -1,7 +1,5 @@
 package com.example.bookstore.model.entitiy;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,17 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "Book")
 @ToString
-@Builder
 public class Book extends TimeEntity{
 
     @Id
@@ -27,13 +27,13 @@ public class Book extends TimeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idx;
 
-    @Column
+    @Column(length =10 ,nullable = false)
     private String id;
 
     @Column
     private String ISBN;
 
-    @Column
+    @Column(length =32 ,nullable = false)
     private String title;
 
     @Column
@@ -42,4 +42,14 @@ public class Book extends TimeEntity{
     @Column
     private String categories;
 
+    @Builder
+    public Book(final Long idx, final String id, final String ISBN, final String title, final String author,
+            final String categories) {
+        this.idx = idx;
+        this.id = id;
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.categories = categories;
+    }
 }

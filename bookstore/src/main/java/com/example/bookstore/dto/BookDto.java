@@ -39,14 +39,15 @@ public class BookDto {
     private LocalDateTime modifiedDate;
 
     public Book toEntity(){
-        return Book.builder()
-        .idx(idx)
-        .id(id)
-        .ISBN(ISBN)
-        .title(title)
-        .author(author)
-        .categories(categories)
-        .build();
+        Book build = Book.builder()
+            .idx(idx)
+            .id(id)
+            .ISBN(ISBN)
+            .title(title)
+            .author(author)
+            .categories(categories)
+            .build();
+        return build;
     }
 
     @Builder

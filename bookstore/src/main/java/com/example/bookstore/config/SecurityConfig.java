@@ -38,17 +38,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // setting authroize Role
-                                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/myinfo").hasRole("MEMBER")
                 .antMatchers("/h2-console/**").permitAll()                
                 .antMatchers("/**").permitAll()
             .and() // setting login
-                                .formLogin()
+                .formLogin()
                 .loginPage("/user/login")
                 .defaultSuccessUrl("/user/login/result")
                 .permitAll()
             .and() // setting logout
-                               .logout()
+                .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                 .logoutSuccessUrl("/user/logout/result")
                 .invalidateHttpSession(true)

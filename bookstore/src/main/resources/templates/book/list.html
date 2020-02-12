@@ -3,13 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
 </head>
 <body>
     <!-- HEADER -->
     <div th:insert="common/header.html" id="header"></div>
 
     <a th:href="@{/book/write}">Post</a>
+    
+    <table>
+        <thead>
+        <tr>
+            <th class="one wide">No.</th>
+            <th class="ten wide">Title</th>
+            <th class="two wide">Author</th>
+        </tr>
+        </thead>
 
+        <tbody>
+            
+        <tr th:each="book : ${list}">
+            <td>
+                <span th:text="${book.idx}"></span>
+            </td>
+            <td>
+                <a th:href="@{'/book/' + ${book.idx}}">
+                    <span th:text="${book.title}"></span>
+                </a>
+            </td>
+            <td>
+                <span th:text="${book.author}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     <!-- FOOTER -->
     <div th:insert="common/footer.html" id="footer"></div>
 </body>

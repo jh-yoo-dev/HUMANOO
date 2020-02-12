@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+<h2 th:text="${bookDto.title}"></h2>
+<p th:inline="text">Id : [[${bookDto.id}]]</p>
+<p th:inline="text">Title : [[${bookDto.title}]]"</p> 
+<p th:inline="text">Author : [[${bookDto.author}]]"</p> 
+<p th:inline="text">ISBN : [[${bookDto.ISBN}]]"</p> 
+<p th:inline="text">Categories : [[${bookDto.categories}]]"</p> 
+<p th:inline="text">CreatedDate : [[${#temporals.format(bookDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+
+<div>
+    <a th:href="@{'/book/' + ${bookDto.idx}}">
+        <input type="hidden" name="_method" value="put"/>
+        <button>Edit</button>
+    </a>
+
+    <form id="delete-form" th:action="@{'/book/' + ${bookDto.idx}}" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <button id="delete-btn">Delete</button>
+    </form>
+</div>

@@ -10,7 +10,6 @@
     <a sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a>
     <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a>
     <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">SingUp</a>
-    <a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">MyInfo</a>
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Admin</a>
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/book}">List</a>
 </body>

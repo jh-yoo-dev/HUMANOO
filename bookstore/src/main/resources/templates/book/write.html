@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Book Info</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-    <form action="/book/create" method="POST" >
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-        
-        Id : <input type="text" name="id"> <br>
-        ISBN : <input type="text" name="ISBN"> <br>
-        title : <input type="text" name="title"> <br>
-        author : <input type="text" name="author"> <br>
-        categories : <input type="text" name="categories"> <br>
-        <input type="submit" value="POST">
-    </form>
-    <input onclick='javascript:window.history.back()' value='Back' type='button' />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<div class="row">
+	<div class="col-sm-6 col-md-10">
+	<h1 class="forom-control">Book Info</h1>
+	    <form class="navbar-form navbar" action="/book/create" method="POST" >
+	        <input class="form-control" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+	        
+	        Id : <input class="form-control" type="text" name="id"> <br>
+	        ISBN : <input class="form-control" type="text" name="ISBN"> <br>
+	        title : <input class="form-control" type="text" name="title"> <br>
+	        author : <input class="form-control" type="text" name="author"> <br>
+	        categories : <input class="form-control" type="text" name="categories"> <br>
+	        <input class="btn btn-primary" type="submit" value="Post">
+	        <input class="btn btn-default" onclick='javascript:window.history.back()' value='Back' type='button' />
+	    </form>
+    </div>
 </body>
 </html>

@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Signup Page</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-    <h1>Signup</h1>
-    <hr>
-
-    <form th:action="@{/user/signup}" method="post">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Signup</button>
+	<div class="page-header">
+	    <h1>Signup</h1>
+	    <hr>
+	</div>
+    <form class="navbar-form navbar" th:action="@{/user/signup}" method="post">
+        <input class="form-control" type="text" name="email" placeholder="Email">
+        <input class="form-control" type="password" name="password" placeholder="Password">
+        <button class="btn btn-primary" type="submit">Signup</button>
+        <input class="btn btn-default" onclick='javascript:window.history.back()' value='Back' type='button' />
     </form>
 </body>
 </html>

@@ -8,12 +8,16 @@
 <body>
     <script type="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <div class="page-header">
     <h1>Main Page</h1>
     <hr>
-    <a sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a>
-    <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a>
-    <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">SingUp</a>
-    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Admin</a>
-    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/book}">List</a>
+    <div class="panel panel-default">
+	    <div class="panel-body"><a sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a></div>
+	    <div class="panel-body"><a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a></div>
+	    <div class="panel-body"><a sec:authorize="isAnonymous()" th:href="@{/user/signup}">SingUp</a></div>
+	    <div class="panel-body"><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Admin</a></div>
+	    <div class="panel-body"><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/book}">List</a></div>
+    </div>
+    </div>
 </body>
 </html>

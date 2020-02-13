@@ -6,53 +6,60 @@
 
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
-<body>
-    <script type="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<body style="margin: 0 100px;">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <!-- HEADER -->
     <div th:insert="common/header.html" id="header"></div>
 
-    <a class="btn btn-primary" th:href="@{/book/write}" style="text-align: left;">Post</a>
-    
-    <table>
-        <thead>
-        <tr>
-            <th class="one wide">No.</th>
-            <th class="ten wide">Title</th>
-            <th class="two wide">Author</th>
-        </tr>
-        </thead>
-
-        <tbody>
-            
-        <tr th:each="book : ${list}">
-            <td>
-                <span th:text="${book.idx}"></span>
-            </td>
-            <td>
-                <a th:href="@{'/book/' + ${book.idx}}">
-                    <span th:text="${book.title}"></span>
-                </a>
-            </td>
-            <td>
-                <span th:text="${book.author}"></span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <form action="/book/search" method="GET">
-        <div>
-            <span th:each="pageNum : ${pageList}" th:inline="text">
-                <a th:href="@{'/book?page=' + ${pageNum}}">[[${pageNum}]]</a>
-            </span>
-        </div>
-        <div>
-            <input name="keyword" type="text" placeholder="Please text Keyword">
-        </div>
-    
-        <button>검색하기</button>
-    </form>
-    
+	<a class="btn btn-primary btn-lg" aria-hidden="true" th:href="@{/book/write}">POST</a>
+ 	<div class="row">
+		<div class="col-sm-6 col-md-10">
+		    <table class="table">
+		        <thead>
+		        <tr>
+		            <th class="one wide">No.</th>
+		            <th class="ten wide">Title</th>
+		            <th class="two wide">Author</th>
+		            <th class="two wide">ISBN</th>
+		            <th class="two wide">Categories</th>
+		        </tr>
+		        </thead>
+		
+		        <tbody>
+		            
+		        <tr th:each="book : ${list}">
+		            <td>
+		                <span th:text="${book.idx}"></span>
+		            </td>
+		            <td>
+		                <a th:href="@{'/book/' + ${book.idx}}">
+		                    <span th:text="${book.title}"></span>
+		                </a>
+		            </td>
+		            <td>
+		                <span th:text="${book.author}"></span>
+		            </td>
+		            <td>
+		                <span th:text="${book.ISBN}"></span>
+		            </td>
+		            <td>
+		                <span th:text="${book.categories}"></span>
+		            </td>
+		        </tr>
+		        </tbody>
+	   		</table>
+		    <form class="navbar-form navbar-right" action="/book/search" method="GET">
+		        <div class="input-group">
+		            <input class="form-control" name="keyword" type="text" placeholder="Please text Title">
+		            	<div class="input-group-btn">
+							<button class="btn btn-default">Search</button>    
+							<input class="btn btn-default" onclick='javascript:window.history.back()' value='Back' type='button' />    
+		        		</div>  
+		        </div>
+		    </form>
+	    </div>
+    </div>
     <!-- FOOTER -->
     <div th:insert="common/footer.html" id="footer"></div>
 </body>

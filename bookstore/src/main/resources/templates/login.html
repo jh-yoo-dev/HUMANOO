@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
-<body>
+<body><div class="page-header">
     <h1>Login</h1>
     <hr>
-
-    <form action="/user/login" method="post">
+	</div>
+	
+    <form class="navbar-form navbar" action="/user/login" method="post">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
-        <input type="text" name="username" placeholder="Email">
-        <input type="password" name="password" placeholder="password">
-        <button type="submit">Login</button>
+        <input class="form-control" type="text" name="username" placeholder="Email">
+        <input class="form-control" type="password" name="password" placeholder="password">
+        <button class="btn btn-primary" type="submit">Login</button>
+        <input class="btn btn-default" onclick='javascript:window.history.back()' value='Back' type='button' />
     </form>
 </body>
 </html>

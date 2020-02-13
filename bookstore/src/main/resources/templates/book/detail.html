@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Detail</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-
-<h2 th:text="${bookDto.title}"></h2>
-<p th:inline="text">Id : [[${bookDto.id}]]</p>
-<p th:inline="text">Title : [[${bookDto.title}]]"</p> 
-<p th:inline="text">Author : [[${bookDto.author}]]"</p> 
-<p th:inline="text">ISBN : [[${bookDto.ISBN}]]"</p> 
-<p th:inline="text">Categories : [[${bookDto.categories}]]"</p> 
-<p th:inline="text">CreatedDate : [[${#temporals.format(bookDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
-<p th:inline="text">ModifiedDate : [[${#temporals.format(bookDto.modifiedDate, 'yyyy-MM-dd HH:mm')}]]</p>
-
-<div>
-    <a th:href="@{'/book/edit/' + ${bookDto.idx}}">
-        <button>Edit</button>
+<div class="jumbotron">
+	<h2 th:text="${bookDto.title}"></h2>
+	<p th:inline="text">Id : [[${bookDto.id}]]</p>
+	<p th:inline="text">Author : [[${bookDto.author}]]"</p> 
+	<p th:inline="text">ISBN : [[${bookDto.ISBN}]]"</p> 
+	<p th:inline="text">Categories : [[${bookDto.categories}]]"</p> 
+	<p th:inline="text">CreatedDate : [[${#temporals.format(bookDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+	<p th:inline="text">ModifiedDate : [[${#temporals.format(bookDto.modifiedDate, 'yyyy-MM-dd HH:mm')}]]</p>
+	<div>
+ 	<a th:href="@{'/book/edit/' + ${bookDto.idx}}">
+        <button class="btn btn-primary">Edit</button>
     </a>
-
     <form id="delete-form" th:action="@{'/book/' + ${bookDto.idx}}" method="post">
         <input type="hidden" name="_method" value="delete"/>
-        <button id="delete-btn">Delete</button>
+        <button class="btn btn-danger" id="delete-btn">Del</button>
     </form>
-    <input onclick='javascript:window.history.back()' value='Back' type='button' />
+    <input class="btn btn-default" onclick='javascript:window.history.back()' value='Back' type='button' />
+    </div>
 </div>

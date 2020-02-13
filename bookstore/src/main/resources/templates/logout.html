@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>LogOut</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-    <h1>LogOut Success</h1>
-    <hr>
-    <a th:href="@{'/'}">Main</a>
+	<div class="page-header">
+	    <h1>LogOut Success</h1>
+	    <hr>
+    </div>
+    <input class="btn btn-default" onclick='javascript:window.history.back()' value='Back' type='button' />
 </body>
 </html>

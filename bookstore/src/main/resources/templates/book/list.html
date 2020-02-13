@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Books List</title>
 
     <link rel="stylesheet" th:href="@{/css/common.css}">
 </head>
@@ -38,6 +38,19 @@
         </tr>
         </tbody>
     </table>
+    <form action="/book/search" method="GET">
+        <div>
+            <span th:each="pageNum : ${pageList}" th:inline="text">
+                <a th:href="@{'/book?page=' + ${pageNum}}">[[${pageNum}]]</a>
+            </span>
+        </div>
+        <div>
+            <input name="keyword" type="text" placeholder="Please text Keyword">
+        </div>
+    
+        <button>검색하기</button>
+    </form>
+    
     <!-- FOOTER -->
     <div th:insert="common/footer.html" id="footer"></div>
 </body>

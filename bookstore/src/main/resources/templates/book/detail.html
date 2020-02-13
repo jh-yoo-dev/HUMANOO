@@ -13,10 +13,10 @@
 <p th:inline="text">ISBN : [[${bookDto.ISBN}]]"</p> 
 <p th:inline="text">Categories : [[${bookDto.categories}]]"</p> 
 <p th:inline="text">CreatedDate : [[${#temporals.format(bookDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+<p th:inline="text">ModifiedDate : [[${#temporals.format(bookDto.modifiedDate, 'yyyy-MM-dd HH:mm')}]]</p>
 
 <div>
-    <a th:href="@{'/book/' + ${bookDto.idx}}">
-        <input type="hidden" name="_method" value="put"/>
+    <a th:href="@{'/book/edit/' + ${bookDto.idx}}">
         <button>Edit</button>
     </a>
 
@@ -24,4 +24,5 @@
         <input type="hidden" name="_method" value="delete"/>
         <button id="delete-btn">Delete</button>
     </form>
+    <input onclick='javascript:window.history.back()' value='Back' type='button' />
 </div>

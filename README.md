@@ -15,6 +15,5 @@ appplication.properties
 <ul>
   <li>spring.h2.console.enabled=true</li>
   <li>spring.h2.console.path=/h2-console</li>
-  <li>you can access database in [H2 Console](http://localhost:8080/h2-console)</li>
 </ul>
 
